@@ -1,9 +1,11 @@
 from busylib import BusyBar, converter, types
 
 APP = "my-app"
+bb = BusyBar("10.0.4.20")
+print(bb.version())
 
 
-def upload(bb: BusyBar, path: str) -> str:
+def upload(bb, path: str) -> str:
     """Convert a local file for the device and upload it."""
     with open(path, "rb") as handle:
         filename, payload = converter.convert_for_storage(path, handle.read())
